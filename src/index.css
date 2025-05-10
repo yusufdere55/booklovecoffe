@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.title{
+  font-size: clamp(1rem, -1.5rem + 8vw, 3rem);
+}
+
+.menu{
+  font-family: "Sour Gummy";
+}
+
+.menu-clamp{
+  font-size: clamp(1rem, -2.5rem + 8vw, 3rem);
+}
+
+.menu-item-clamp{
+ font-size: clamp(0.625rem, 0.4327rem + 1.2308vw, 1.125rem);
+}
