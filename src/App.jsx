@@ -1,5 +1,3 @@
-// src/App.jsx
-import React from "react";
 import useDevice from "./hooks/useDevice";
 
 //Pages

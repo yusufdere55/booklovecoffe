@@ -100,7 +100,7 @@ const Book = () => {
         height: Math.round(pageHeight)
       });
       
-      console.log(`Sayfa boyutları: ${Math.round(pageWidth)}x${Math.round(pageHeight)}, Oran: ${EXACT_ASPECT_RATIO}`);
+      // console.log(`Sayfa boyutları: ${Math.round(pageWidth)}x${Math.round(pageHeight)}, Oran: ${EXACT_ASPECT_RATIO}`);
     };
 
     updateDimensions();
@@ -114,7 +114,7 @@ const Book = () => {
       const img = new Image();
       img.onload = () => {
         const aspectRatio = img.width / img.height;
-        console.log(`Image ${src}: Width=${img.width}, Height=${img.height}, Ratio=${aspectRatio}`);
+        // console.log(`Image ${src}: Width=${img.width}, Height=${img.height}, Ratio=${aspectRatio}`);
         resolve(aspectRatio);
       };
       img.onerror = () => {
