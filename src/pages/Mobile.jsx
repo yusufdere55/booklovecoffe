@@ -21,70 +21,39 @@ const MobileTemplate = () => {
     "./images/13.jpg",
   ];
 
+   // Component yüklendikten sonra Owl Carousel'i başlat
   useEffect(() => {
-    // jQuery ve Owl Carousel'ı script olarak ekleyelim
-    const loadScripts = async () => {
-      // jQuery'yi önce ekleyelim
-      const jqueryScript = document.createElement("script");
-      jqueryScript.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-      jqueryScript.async = true;
-      document.body.appendChild(jqueryScript);
-
-      // jQuery yüklendiğinde Owl Carousel'ı ekleyelim
-      jqueryScript.onload = () => {
-        const owlCarouselCss = document.createElement("link");
-        owlCarouselCss.rel = "stylesheet";
-        owlCarouselCss.href = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css";
-        document.head.appendChild(owlCarouselCss);
-
-        const owlThemeCss = document.createElement("link");
-        owlThemeCss.rel = "stylesheet";
-        owlThemeCss.href = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css";
-        document.head.appendChild(owlThemeCss);
-
-        const owlCarouselScript = document.createElement("script");
-        owlCarouselScript.src = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js";
-        owlCarouselScript.async = true;
-        document.body.appendChild(owlCarouselScript);
-
-        owlCarouselScript.onload = () => {
-          // Owl Carousel yüklendi, şimdi başlatabiliriz
-          setOwlLoaded(true);
-        };
-      };
-    };
-
-    loadScripts();
-
-    // Temizleme fonksiyonu
-    return () => {
-      // Eğer gerekirse, script ve stil etiketlerini kaldırma kodu buraya eklenebilir
-    };
-  }, []);
-
-  // Owl Carousel'ı başlat
-  useEffect(() => {
-    if (owlLoaded && window.jQuery) {
+    // jQuery ve Owl Carousel zaten yüklü olduğundan emin olalım
+    if (window.jQuery) {
       const $ = window.jQuery;
+      // Bu noktada Owl Carousel'i başlatalım
       $(".owl-carousel").owlCarousel({
         items: 1,
-        loop: true,
+        loop: false,
         nav: false,
         dots: false,
         autoplay: false,
         touchDrag: true,
         mouseDrag: true,
         margin: 0,
-        navText: [
-          '<i class="fa fa-angle-left"></i>',
-          '<i class="fa fa-angle-right"></i>'
-        ]
+        lazyLoad:true,
       });
+    } else {
+      console.error("jQuery not loaded. Make sure it's included in index.html");
     }
-  }, [owlLoaded]);
+    
+    // Component unmount olduğunda
+    return () => {
+      if (window.jQuery) {
+        const $ = window.jQuery;
+        // Carousel'i yok edelim (bellek temizliği için)
+        $(".owl-carousel").owlCarousel('destroy');
+      }
+    };
+  }, []);
 
   return (
-    <div className="flex flex-col justify-start items-center min-h-screen">
+    <div className="flex flex-col justify-start items-center min-h-screen bg-[#F8F4E1]">
       <div className="flex flex-row min-w-screen px-4 justify-between items-center bg-[#F8F4E1] py-4 gap-8">
         <img src="./favicon.png" className="w-22" alt="" draggable="false" />
         <h2 className="menu-clamp menu text-[#F7BE79] text-shadow-md text-shadow-black/20 tracking-[3px] text-right italic">
@@ -111,16 +80,16 @@ const MobileTemplate = () => {
         <div className="flex flex-row justify-between w-screen px-4 py-2 text-black items-center">
           <img src="./favicon.png" className="w-16 h-16" alt="" draggable={false} />
           <div className="flex flex-row justify-center items-center gap-2">
-            <a href="#" className="border rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
+            <a href="#" className="border-2 rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
               <FaInstagram className="w-4 h-4 text-[#F7BE79]" />
             </a>
-            <a href="#" className="border rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
+            <a href="#" className="border-2 rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
               <FaFacebook className="w-4 h-4 text-[#F7BE79]" />
             </a>
-            <a href="#" className="border rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
+            <a href="#" className="border-2 rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
               <FaXTwitter className="w-4 h-4 text-[#F7BE79]" />
             </a>
-            <a href="https://maps.app.goo.gl/7U2ek4sYCrej8BV77" target="_blank" className="border rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
+            <a href="https://maps.app.goo.gl/7U2ek4sYCrej8BV77" target="_blank" className="border-2 rounded-full border-[#F7BE79] w-7 h-7 flex items-center justify-center">
               <FaMapLocation className="w-4 h-4 text-[#F7BE79]" />
             </a>
           </div>
@@ -129,11 +98,6 @@ const MobileTemplate = () => {
           © Copyright 2025. All Reserved For <b><i>Book-Love Coffee</i></b>
         </div>
       </div>
-
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      />
     </div>
   );
 };

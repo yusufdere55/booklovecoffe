@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
-import { GrFormNext, GrFormPrevious, GrPowerReset, GrZoomIn, GrZoomOut } from "react-icons/gr";
 import { IoHome } from "react-icons/io5";
 import CustomItem from "../components/CustomItem";
+import { FaHome, FaSearchMinus, FaSearchPlus } from "react-icons/fa";
+import { FaMagnifyingGlass, FaMagnifyingGlassMinus, FaMagnifyingGlassPlus } from "react-icons/fa6";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 const Book = () => {
   const [page, setPage] = useState(0);
@@ -303,12 +305,12 @@ const Book = () => {
       <div className="fixed top-0 left-0 right-0 bg-black/40 z-10 m-auto w-full h-16 rounded-none sm:rounded flex flex-row gap-2 p-2 flex-wrap justify-between items-center backdrop-blur-sm">
         <div></div>
         <div className="flex flex-row gap-1 flex-wrap items-center justify-center">
-          <CustomItem onClick={handleStartPage} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer"><IoHome className="w-6 h-6" /></button>} />
-          <CustomItem onClick={handlePrevPage} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer"><GrFormPrevious className="w-10 h-10" /></button>} />
-          <CustomItem onClick={handleNextPage} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer"><GrFormNext className="w-10 h-10" /></button>} />
-          <CustomItem onClick={handleZoomOut} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer"><GrZoomOut className="w-6 h-6" /></button>} />
-          <CustomItem onClick={handleZoomIn} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer"><GrZoomIn className="w-6 h-6" /></button>} />
-          <CustomItem onClick={handleZoomReset} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer"><GrPowerReset className="w-6 h-6" /></button>} />
+          <CustomItem onClick={handleStartPage} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer hover:scale-105 active:scale-95 transition-all"><FaHome className="w-6 h-6" /></button>} />
+          <CustomItem onClick={handlePrevPage} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer hover:scale-105 active:scale-95 transition-all"><RiArrowLeftSLine className="w-10 h-10" /></button>} />
+          <CustomItem onClick={handleNextPage} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer hover:scale-105 active:scale-95 transition-all"><RiArrowRightSLine className="w-10 h-10" /></button>} />
+          <CustomItem onClick={handleZoomIn} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer hover:scale-105 active:scale-95 transition-all"><FaSearchPlus className="w-5 h-5" /></button>} />
+          <CustomItem onClick={handleZoomOut} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer hover:scale-105 active:scale-95 transition-all"><FaSearchMinus className="w-5 h-5" /></button>} />
+          <CustomItem onClick={handleZoomReset} children={<button className="w-7 h-7 flex justify-center items-center cursor-pointer hover:scale-105 active:scale-95 transition-all"><FaMagnifyingGlass className="w-5 h-5" /></button>} />
         </div>
         <div className="text-white/70 font-semibold px-4 py-2 rounded-full">
           <b className="bg-white/20 py-1 px-2 rounded">{page + 1}</b> <span className="text-lg">/ {pages.length}</span>
