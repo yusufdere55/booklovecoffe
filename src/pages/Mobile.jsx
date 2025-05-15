@@ -45,17 +45,17 @@ const MobileTemplate = () => {
     const owlConfig = {
       items: 1,
       loop: false,
-      nav: true,
+      nav: false,
       dots: false,
       autoplay: false,
       touchDrag: true,
       mouseDrag: true,
       margin: 0,
       lazyLoad: true,
-      navText: [
-        '<i class="fa fa-chevron-left"></i>',
-        '<i class="fa fa-chevron-right"></i>'
-      ],
+      // navText: [
+        // '<i class="fa fa-chevron-left"></i>',
+        // '<i class="fa fa-chevron-right"></i>'
+      // ],
       responsive: {
         0: {
           items: 1,
@@ -63,7 +63,7 @@ const MobileTemplate = () => {
         },
         600: {
           items: 1,
-          nav: true
+          nav: false
         }
       },
       onChanged: (event) => {
@@ -135,17 +135,18 @@ const MobileTemplate = () => {
 
   return (
     <div className="flex flex-col justify-start items-center min-h-screen bg-[#F8F4E1]">
+      
       {/* Header */}
-      <header className="flex flex-row w-full px-4 justify-between items-center bg-[#F8F4E1] py-4 gap-8 shadow-sm">
+      <header className="flex flex-row w-full px-4 justify-between items-center bg-[#664343] py-4 gap-8 shadow-sm">
         <img 
           src="./favicon.png" 
-          className="w-20 h-20 object-contain" 
+          className="w-20 h-20 object-contain shadow-white iniset-shadow-xl rounded-full" 
           alt="Book Love Coffee Logo" 
           draggable={false}
         />
-        <h2 className="menu-clamp menu text-[#F7BE79] text-shadow-md text-shadow-black/20 tracking-[3px] text-right italic font-medium">
-          Bir Yudum Kahve, Bir Sayfa Huzur!!
-        </h2>
+        <p className="title-clamp menu text-[#F7BE79] text-shadow-md text-xs text-shadow-black/20  text-right font-medium">
+          Bir Yudum Kahve, Bir Sayfa Huzur!
+        </p>
       </header>
 
       {/* Main Carousel */}
@@ -166,7 +167,7 @@ const MobileTemplate = () => {
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-[#F8F4E1] mt-auto">
+      <footer className="w-full bg-[#664343] mt-auto">
         <div className="flex flex-col gap-4 p-4">
           <div className="flex justify-between items-center">
             <img 

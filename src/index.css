@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -26,13 +26,14 @@
 }
 
 .menu{
-  font-family: "Sour Gummy";
+  font-family: "Special Elite";
 }
 
-.menu-clamp{
-  font-size: clamp(1.2rem, -2.5rem + 8vw, 3rem);
+.title-clamp{
+  font-size: clamp(1rem, -3.0469rem + 10.75vw, 3rem);
+  font-weight: bold;
 }
 
 .menu-item-clamp{
- font-size: clamp(0.625rem, 0.4327rem + 1.2308vw, 1.125rem);
+ font-size: clamp(0.525rem, 0.4327rem + 1.2308vw, 1.125rem);
 }
