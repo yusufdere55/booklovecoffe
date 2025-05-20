@@ -239,7 +239,7 @@ const Book = () => {
             loading="lazy"
             style={{ 
               pointerEvents: "none",
-              objectFit: isRightPage ? "contain" : "cover",
+              objectFit: isRightPage ? "contain" : "contain",
               width: "100%", 
               height: "100%"
             }}
